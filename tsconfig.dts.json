@@ -1,0 +1,17 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/axios-helpers"
+    },
+    {
+      "path": "./packages/axios-http"
+    },
+    {
+      "path": "./packages/axios-plugin-jsonp"
+    },
+    {
+      "path": "./packages/axios-plugin-versioning"
+    }
+  ]
+}

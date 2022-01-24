@@ -1,0 +1,25 @@
+{
+  "name": "@zhengxs/axios-types",
+  "version": "0.0.1",
+  "main": "",
+  "types": "./index.d.ts",
+  "typedocMain": "./index.d.ts",
+  "files": [
+    "*.d.ts",
+    "types"
+  ],
+  "dependencies": {
+    "axios": "*"
+  },
+  "devDependencies": {
+    "axios": "^0.19.2"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.com/"
+  },
+  "author": {
+    "name": "zhengxs2018",
+    "email": "zhengxs2018@foxmail.com"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,13 @@
+:root {
+  --c-brand: #1e72ff;
+  --c-brand-light: #1395fe;
+
+  --back-to-top-color: --c-brand;
+  --back-to-top-color-hover: --c-brand-light;
+}
+
+html.dark {
+  --c-brand: #1e88e5;
+  --c-brand-light: #319fff;
+  --c-bg: #2a2d31;
+}

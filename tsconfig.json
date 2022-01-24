@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ESNEXT",
+    "module": "CommonJS",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "DOM.Iterable"],
+    "types": ["jest", "node", "@vuepress/client/types"],
+    "baseUrl": ".",
+    "paths": {
+      "@zhengxs/*": ["packages/*/src"]
+    }
+  },
+  "include": [
+    "packages/global.d.ts",
+    "packages/*/src",
+    "packages/*/__tests__",
+    "scripts"
+  ],
+  "exclude": ["node_modules"]
+}

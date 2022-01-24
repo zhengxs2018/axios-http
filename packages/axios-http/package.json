@@ -1,0 +1,37 @@
+{
+  "name": "@zhengxs/axios-http",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./types/index.d.ts",
+  "typedocMain": "src/index.ts",
+  "exports": {
+    "require": "./dist/index.mjs",
+    "import": "./dist/index.mjs"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "types"
+  ],
+  "dependencies": {
+    "@zhengxs/axios-helpers": "0.0.1",
+    "@zhengxs/axios-plugin-jsonp": "0.0.1",
+    "@zhengxs/axios-plugin-versioning": "0.0.1",
+    "@zhengxs/axios-types": "0.0.1",
+    "axios": "*",
+    "axios-jsonp": "^1.0.4",
+    "axios-retry": "^3.2.4"
+  },
+  "devDependencies": {
+    "axios": "^0.19.2"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.com/"
+  },
+  "author": {
+    "name": "zhengxs2018",
+    "email": "zhengxs2018@foxmail.com"
+  },
+  "license": "MIT"
+}

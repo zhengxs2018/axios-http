@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "ESNext",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": false,
+    "emitDeclarationOnly": true,
+    "sourceMap": false,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "strictNullChecks": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "useDefineForClassFields": false,
+    "noImplicitAny": false,
+    "newLine": "lf",
+    "removeComments": false,
+    "noEmitOnError": true,
+    "skipLibCheck": true
+  }
+}

@@ -1,0 +1,28 @@
+.DS_store
+
+node_modules/
+temp/
+.history
+
+# vuepress
+.cache
+.temp
+
+coverage/
+
+dist/
+lib/
+
+packages/*/types/
+!packages/@vuepress/types/
+!packages/@tracing/types/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+*.tsbuildinfo
+.eslintcache
