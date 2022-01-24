@@ -26,7 +26,7 @@ import { defineClient } from '@zhengxs/axios-http'
 
 const http = defineClient()
 
-// 设置自定义请求头
+// 设置基础地址
 http.setBaseURL('https://example.com')
 
 // 设置自定义请求头
@@ -46,8 +46,11 @@ http.enableAutoRetry()
 http.enableVersioning()
 
 // 发送请求
+http.request('http://example.com/test')
+
+// 发送 jsonp 请求
 http.request('http://example.com/test', {
-  jsonp: true // 这是一个 jsonp 请求
+  jsonp: true // 设置 jsonp=true 可以将普通请求变为 jsonp
 })
 ```
 
