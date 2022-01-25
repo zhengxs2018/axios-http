@@ -2,18 +2,18 @@
   "name": "@zhengxs/axios-http",
   "short_name": "axios-http",
   "description": "基于 Axios 开发的 HTTP 标准模块，让前端开发更加简单规范",
-  "start_url": "/index.html",
+  "start_url": "/axios-http/index.html",
   "display": "standalone",
   "background_color": "#fff",
   "theme_color": "#1e72ff",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
+      "src": "/axios-http/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-512x512.png",
+      "src": "/axios-http/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
