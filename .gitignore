@@ -11,11 +11,7 @@ temp/
 coverage/
 
 dist/
-lib/
-
-packages/*/types/
-!packages/@vuepress/types/
-!packages/@tracing/types/
+types/
 
 # Logs
 logs
