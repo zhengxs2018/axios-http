@@ -14,6 +14,10 @@
     "dist",
     "types"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "dependencies": {
     "@zhengxs/axios-helpers": "0.0.1",
     "@zhengxs/axios-plugin-jsonp": "0.0.1",
@@ -25,9 +29,6 @@
   },
   "devDependencies": {
     "axios": "^0.19.2"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.com/"
   },
   "author": {
     "name": "zhengxs2018",

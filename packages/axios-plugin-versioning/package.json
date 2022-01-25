@@ -21,7 +21,8 @@
     "axios": "^0.19.2"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.com/"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "author": {
     "name": "zhengxs2018",
