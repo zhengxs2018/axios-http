@@ -3,7 +3,6 @@ import Axios from 'axios'
 export const CancelToken = Axios.CancelToken
 
 export const isCancel = Axios.isCancel
-// export const isAxiosError = Axios.isAxiosError
 
 export type {
   AxiosRequestConfig,
@@ -21,8 +20,6 @@ export {
   exponentialDelay
 } from 'axios-retry'
 
-export type { IAxiosRetryConfig } from 'axios-retry'
-
 export { withCancelToken } from '@zhengxs/axios-helpers'
 
 export type {
@@ -33,8 +30,8 @@ export type {
   PluginObject
 } from '@zhengxs/axios-types'
 
+export { VersioningType } from '@zhengxs/axios-plugin-versioning'
 export type {
-  VersioningType,
   VersioningOptions,
   URIVersioningOptions,
   HeaderVersioningOptions
@@ -43,4 +40,4 @@ export type {
 export type { AxiosJsonpConfig } from '@zhengxs/axios-plugin-jsonp'
 
 export { defineClient } from './defineClient'
-export type { AxiosRetryConfig } from './defineClient'
+export type { ClientInstance, AxiosRetryConfig } from './types'

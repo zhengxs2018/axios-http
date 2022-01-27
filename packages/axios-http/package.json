@@ -6,7 +6,7 @@
   "types": "./types/index.d.ts",
   "typedocMain": "src/index.ts",
   "exports": {
-    "require": "./dist/index.mjs",
+    "require": "./dist/index.js",
     "import": "./dist/index.mjs"
   },
   "sideEffects": false,
@@ -23,12 +23,9 @@
     "@zhengxs/axios-plugin-jsonp": "0.0.1",
     "@zhengxs/axios-plugin-versioning": "0.0.1",
     "@zhengxs/axios-types": "0.0.1",
-    "axios": "*",
+    "axios": "^0.19.2",
     "axios-jsonp": "^1.0.4",
     "axios-retry": "^3.2.4"
-  },
-  "devDependencies": {
-    "axios": "^0.19.2"
   },
   "author": {
     "name": "zhengxs2018",

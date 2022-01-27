@@ -8,7 +8,7 @@
     "*.d.ts",
     "types"
   ],
-  "dependencies": {
+  "peerDependencies": {
     "axios": "*"
   },
   "devDependencies": {

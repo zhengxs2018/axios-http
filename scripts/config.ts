@@ -77,7 +77,7 @@ export async function getMergedConfig(pkg, opts = {}) {
     ...userConfig['esbuild'],
     ...extraOptions,
     absWorkingDir: root,
-    charset: charset ?? 'utf8',
+    charset: charset || 'utf8',
     target: opts['target'] || userConfig['target'],
     entryPoints: entryPoints.map(p => resolve(cwd, p)),
     outdir: outdir,

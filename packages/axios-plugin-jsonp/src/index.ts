@@ -15,7 +15,7 @@ export default function jsonpPlugin(
 ) {
   const { callbackParamName = 'callback' } = config
 
-  client.interceptors.request.use(config => {
+  client.interceptors.request.use(function (config) {
     if (config.enableJsonp) {
       config['adapter'] = jsonpAdapter
       config['callbackParamName'] =

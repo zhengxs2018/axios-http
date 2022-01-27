@@ -1,5 +1,4 @@
-import Axios, { AxiosRequestConfig, AxiosError } from 'axios'
-
+import Axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import AxiosRetry from 'axios-retry'
 
 import AxiosJsonp, { AxiosJsonpConfig } from '@zhengxs/axios-plugin-jsonp'
@@ -13,45 +12,15 @@ import type {
   PluginObject
 } from '@zhengxs/axios-types'
 
-// TODO
-// hack 解决 IAxiosRetryConfig 使用会报 ts4058 的问题
-export type AxiosRetryConfig = {
-  /**
-   * The number of times to retry before failing
-   * default: 3
-   */
-  retries?: number
-  /**
-   * Defines if the timeout should be reset between retries
-   * default: false
-   */
-  shouldResetTimeout?: boolean
-  /**
-   * A callback to further control if a request should be retried. By default, it retries if the result did not have a response.
-   */
-  retryCondition?: (error: AxiosError) => boolean | Promise<boolean>
-  /**
-   * A callback to further control the delay between retry requests. By default there is no delay.
-   */
-  retryDelay?: (retryCount: number, error: AxiosError) => number
-}
+import type {
+  AxiosRetryConfig,
+  ClientInstance,
+  ClientExport,
+  ClientRequestMethods
+} from './types'
 
-export function defineClient(config?: AxiosRequestConfig) {
+export function defineClient(config?: AxiosRequestConfig): ClientInstance {
   const instance = Axios.create(config)
-
-  /**
-   * 发送 request 请求
-   *
-   * @param url  - 请求地址
-   * @param config - Axios 配置
-   * @returns 你的业务数据
-   */
-  function request<T = any>(
-    url: string,
-    config?: AxiosRequestConfig
-  ): Promise<T> {
-    return instance.request({ ...config, url }).then(res => res.data)
-  }
 
   /**
    * 设置基础地址
@@ -136,6 +105,13 @@ export function defineClient(config?: AxiosRequestConfig) {
     setHeader('Authorization', type + ' ' + credentials, scopes)
   }
 
+  function setAuthorization(
+    value: string,
+    scopes?: HeaderScope | HeaderScope[]
+  ): void {
+    return setHeader('Authorization', value, scopes)
+  }
+
   /**
    * 添加 axios 插件
    *
@@ -160,6 +136,10 @@ export function defineClient(config?: AxiosRequestConfig) {
     } else {
       plugin.install(instance, options)
     }
+  }
+
+  function getUri(config?: AxiosRequestConfig) {
+    return instance.getUri(config)
   }
 
   /**
@@ -189,16 +169,99 @@ export function defineClient(config?: AxiosRequestConfig) {
     use(AxiosVersion, options)
   }
 
-  return {
-    instance: instance,
-    defaults: instance.defaults,
-    use,
-    setBaseURL,
+  /**
+   * 请求拦截器
+   *
+   * @param onFulfilled - 成功处理
+   * @param onRejected - 失败处理
+   * @returns 拦截器ID
+   */
+  function onRequest(
+    onFulfilled: (
+      config: AxiosRequestConfig
+    ) =>
+      | AxiosRequestConfig
+      | undefined
+      | null
+      | Promise<AxiosRequestConfig | undefined | null>,
+    onRejected?: (error: any) => any
+  ): number {
+    return instance.interceptors.request.use(function (config) {
+      return Promise.resolve(onFulfilled(config)).then(userConfig => {
+        return userConfig || config
+      })
+    }, onRejected)
+  }
+
+  /**
+   * 响应拦截器
+   *
+   * @param onFulfilled - 成功处理
+   * @param onRejected - 失败处理
+   * @returns 拦截器ID
+   */
+  function onResponse<T = any, D = T>(
+    onFulfilled: (data: T, res: AxiosResponse<T>) => D | Promise<D>,
+    onRejected?: (error: any) => any
+  ): number {
+    return instance.interceptors.response.use(function (response) {
+      return Promise.resolve(onFulfilled(response.data, response)).then(
+        data => {
+          response.data = data
+          return response
+        }
+      )
+    }, onRejected)
+  }
+
+  return addRequestMethodsToClient(instance, {
+    // Headers
     setHeader,
     setToken,
-    request,
+    setAuthorization,
+    // Plugins
+    use,
     enableJsonp,
     enableAutoRetry,
-    enableVersioning
-  }
+    enableVersioning,
+    // Helpers
+    setBaseURL,
+    getUri,
+    // Interceptors
+    onRequest,
+    onResponse,
+    // reference Axios
+    instance: instance,
+    defaults: instance.defaults,
+    interceptors: instance.interceptors
+  })
+}
+
+function addRequestMethodsToClient(
+  instance: AxiosInstance,
+  clientExport: ClientExport
+): ClientExport & ClientRequestMethods {
+  const REQUEST_METHODS = [
+    'request',
+    'get',
+    'delete',
+    'head',
+    'options',
+    'post',
+    'put',
+    'patch'
+  ] as const
+
+  REQUEST_METHODS.forEach(function (method) {
+    clientExport[method] = function () {
+      /* eslint-disable prefer-rest-params */
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      return instance.apply(instance, arguments).then(function (res) {
+        return res.data
+      })
+    }
+  })
+
+  return clientExport as ClientExport & ClientRequestMethods
 }
