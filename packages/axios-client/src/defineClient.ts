@@ -2,7 +2,7 @@ import Axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import AxiosRetry from 'axios-retry'
 
 import AxiosJsonp, { AxiosJsonpConfig } from '@zhengxs/axios-plugin-jsonp'
-import AxiosVersion, {
+import AxiosVersioning, {
   VersioningOptions
 } from '@zhengxs/axios-plugin-versioning'
 import type {
@@ -165,8 +165,8 @@ export function defineClient(config?: AxiosRequestConfig): ClientInstance {
    *
    * @param options - 版本控制插件配置
    */
-  function enableVersioning(options: VersioningOptions) {
-    use(AxiosVersion, options)
+  function enableVersioning(options?: VersioningOptions) {
+    use(AxiosVersioning, options)
   }
 
   /**
