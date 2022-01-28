@@ -23,7 +23,6 @@
     "@endemolshinegroup/cosmiconfig-typescript-loader": "^3.0.2",
     "@lerna/filter-packages": "^4.0.0",
     "@lerna/project": "^4.0.0",
-    "canvas": "^2.9.0",
     "cosmiconfig": "^7.0.1",
     "del": "^6.0.0",
     "esbuild": "^0.14.11",
