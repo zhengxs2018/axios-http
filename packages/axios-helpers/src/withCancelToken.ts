@@ -1,9 +1,11 @@
 import Axios from 'axios'
 import type { AxiosRequestConfig, Canceler } from 'axios'
 
-import type { Fetcher } from '@zhengxs/axios-types'
+import type { Fetcher, SendRequest } from '@zhengxs/axios-types'
 
-const CancelToken = Axios.CancelToken
+export const CancelToken = Axios.CancelToken
+
+export const isCancel = Axios.isCancel
 
 /**
  * 不管调用多少次，只会保留一个激活的请求
@@ -40,28 +42,32 @@ const CancelToken = Axios.CancelToken
  * cancelRequest()
  * ```
  */
-export function withCancelToken<U = unknown, T = unknown>(
-  fetcher: Fetcher<U, T>
-): readonly [Fetcher<U, T>, Canceler] {
+export function withCancelToken<T = any, U = any>(
+  fetcher: Fetcher<T, U>
+): readonly [SendRequest<T, U>, Canceler] {
   let abort: Canceler | null
-  ;``
+
   /**
    * 发送请求
+   *
    * @param data   - 数据
-   * @param config - Axios 请求配置
+   * @param optionalConfig - Axios 请求配置
    * @returns 请求结果
    */
-  function send(data: U, config?: AxiosRequestConfig) {
-    cancel() // 主动取消
+  function send(data: U, config: AxiosRequestConfig = {}) {
+    // 每次请求都自动取消上一次
+    cancel()
 
     const cancelToken = new CancelToken(cancel => (abort = cancel))
-    return fetcher(data, Object.assign({ cancelToken }, config))
+    const requestConfig = Object.assign({}, config, { cancelToken })
+
+    // 防止使用者直接忘记返回 Promise 对象
+    return Promise.resolve(fetcher(data as U, requestConfig))
   }
 
   /**
    * 取消请求
    *
-   * @public
    * @param message - 消息文本
    */
   function cancel(message = 'abort') {
