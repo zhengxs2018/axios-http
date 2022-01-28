@@ -5,16 +5,16 @@
       "path": "./packages/axios-helpers"
     },
     {
-      "path": "./packages/axios-client"
-    },
-    {
-      "path": "./packages/axios-http"
-    },
-    {
       "path": "./packages/axios-plugin-jsonp"
     },
     {
       "path": "./packages/axios-plugin-versioning"
+    },
+    {
+      "path": "./packages/axios-client"
+    },
+    {
+      "path": "./packages/axios-http"
     }
   ]
 }
