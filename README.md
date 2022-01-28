@@ -20,6 +20,8 @@
 - **@zhengxs/axios-helpers** 助手函数
 - **@zhengxs/axios-plugin-\*** 功能插件 (`ps: 兼容 Axios 的实例`)
 - **@zhengxs/axios-types** 提供给其他模块使用的 TS 类型
+- **@zhengxs/axios-vue** 提供给 `Vue 2 & 3` 使用的插件
+- **@zhengxs/axios-react** 提供给 `React` 使用的插件
 
 可以从 [这里](https://juejin.cn/post/7053471988752318472) 了解此模块的理念。
 
@@ -83,12 +85,9 @@ http.request('http://example.com/test', {
 
 lerna 是可选的工具，但 yarn 必须全局安装。
 
-安装依赖
-
 ```sh
-# 为了避免安装失败忽略构建脚本
-# 主要是为了防止安装 package-dependency-graph 关联的 canvas 模块失败
-$ yarn install --ignore-scripts
+# 安装依赖
+$ yarn install
 
 # 生成 .d.ts 文件
 $ yarn build:dts
@@ -98,6 +97,20 @@ $ yarn docs:dev
 
 # 发布文档
 $ yarn docs:release
+```
+
+### 安装 canvas 模块失败的解决办法
+
+为了防止安装 package-dependency-graph 关联的 canvas 模块失败，忽略脚本。
+
+然后再用 cnpm 进行安装，如果环境支持，可以选择执行
+
+```sh
+# 忽略执行
+$ yarn install --ignore-scripts
+
+# 手动安装 canvas
+$ cnpm i canvas --no-save
 ```
 
 ## License
