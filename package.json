@@ -10,7 +10,7 @@
     "test": "jest --runInBand",
     "lint": "eslint . --ext [js,ts,tsx] --ignore-path .gitignore --cache --fix",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json|vue|md|scss)\"",
-    "graph": "package-dependency-graph --png foo.png",
+    "graph": "package-dependency-graph --png dependency-tree.png",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "docs:build-typedoc": "typedoc --options typedoc.json",
