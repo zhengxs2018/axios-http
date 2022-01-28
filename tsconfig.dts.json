@@ -5,6 +5,9 @@
       "path": "./packages/axios-helpers"
     },
     {
+      "path": "./packages/axios-client"
+    },
+    {
       "path": "./packages/axios-http"
     },
     {

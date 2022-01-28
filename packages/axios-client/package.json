@@ -1,5 +1,5 @@
 {
-  "name": "@zhengxs/axios-http",
+  "name": "@zhengxs/axios-client",
   "version": "0.0.1",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
@@ -18,15 +18,13 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "peerDependencies": {
-    "axios": "*"
-  },
   "dependencies": {
-    "@zhengxs/axios-client": "0.0.1",
-    "@zhengxs/axios-helpers": "0.0.1"
-  },
-  "devDependencies": {
-    "axios": "^0.19.2"
+    "@zhengxs/axios-plugin-jsonp": "0.0.1",
+    "@zhengxs/axios-plugin-versioning": "0.0.1",
+    "@zhengxs/axios-types": "0.0.1",
+    "axios": "^0.19.2",
+    "axios-jsonp": "^1.0.4",
+    "axios-retry": "^3.2.4"
   },
   "author": {
     "name": "zhengxs2018",

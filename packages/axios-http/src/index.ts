@@ -1,43 +1,62 @@
-import Axios from 'axios'
-
-export const CancelToken = Axios.CancelToken
-
-export const isCancel = Axios.isCancel
-
-export type {
-  AxiosRequestConfig,
-  AxiosResponse,
-  AxiosError,
-  Canceler
-} from 'axios'
-
-export {
+import {
+  defineClient,
+  VersioningType,
   isNetworkError,
   isRetryableError,
   isSafeRequestError,
   isIdempotentRequestError,
   isNetworkOrIdempotentRequestError,
-  exponentialDelay
-} from 'axios-retry'
-
-export { withCancelToken } from '@zhengxs/axios-helpers'
-
-export type {
+  exponentialDelay,
+  isCancel,
+  CancelToken
+} from '@zhengxs/axios-client'
+import type {
+  ClientInstance,
+  AxiosRetryConfig,
+  AxiosRequestConfig,
+  AxiosResponse,
+  AxiosError,
+  Canceler,
   Fetcher,
   HeaderScope,
   AuthorizationType,
   PluginFunction,
-  PluginObject
-} from '@zhengxs/axios-types'
-
-export { VersioningType } from '@zhengxs/axios-plugin-versioning'
-export type {
+  PluginObject,
+  AxiosJsonpConfig,
   VersioningOptions,
   URIVersioningOptions,
   HeaderVersioningOptions
-} from '@zhengxs/axios-plugin-versioning'
+} from '@zhengxs/axios-client'
 
-export type { AxiosJsonpConfig } from '@zhengxs/axios-plugin-jsonp'
+import { withCancelToken } from '@zhengxs/axios-helpers'
 
-export { defineClient } from './defineClient'
-export type { ClientInstance, AxiosRetryConfig } from './types'
+export {
+  withCancelToken,
+  defineClient,
+  VersioningType,
+  isNetworkError,
+  isRetryableError,
+  isSafeRequestError,
+  isIdempotentRequestError,
+  isNetworkOrIdempotentRequestError,
+  exponentialDelay,
+  isCancel,
+  CancelToken
+}
+export type {
+  ClientInstance,
+  AxiosRetryConfig,
+  AxiosRequestConfig,
+  AxiosResponse,
+  AxiosError,
+  Canceler,
+  Fetcher,
+  HeaderScope,
+  AuthorizationType,
+  PluginFunction,
+  PluginObject,
+  AxiosJsonpConfig,
+  VersioningOptions,
+  URIVersioningOptions,
+  HeaderVersioningOptions
+}
