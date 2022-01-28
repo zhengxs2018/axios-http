@@ -1,6 +1,6 @@
 # @zhengxs/axios-http
 
-> 模块尚未发布，计划2月中旬发布，正在积极开发中
+> 模块尚未发布，计划 2 月中旬发布，正在积极开发中
 
 大多数前端应用都需要通过 HTTP 协议与后端服务器通讯，为约定和规范从 UI 交互到请求服务端数据的完整方案，进一步简化了应用的数据请求流程，基于 [Axios][axios] 提供了 HTTP 模块。
 
@@ -76,6 +76,29 @@ http.request('http://example.com/test', {
 ## 文档
 
 您可以点击 [这里](https://zhengxs2018.github.io/axios-http/) 查看文档。
+
+## 启动项目
+
+本项目为 monorepo 架构，使用 [lerna](https://github.com/lerna/lerna) (`可选`) 进行管理，但默认配置的包管理器为 [yarn 1.x](https://classic.yarnpkg.com/lang/en/).
+
+lerna 是可选的工具，但 yarn 必须全局安装。
+
+安装依赖
+
+```sh
+# 为了避免安装失败忽略构建脚本
+# 主要是为了防止安装 package-dependency-graph 关联的 canvas 模块失败
+$ yarn install --ignore-scripts
+
+# 生成 .d.ts 文件
+$ yarn build:dts
+
+# 启动文档
+$ yarn docs:dev
+
+# 发布文档
+$ yarn docs:release
+```
 
 ## License
 
