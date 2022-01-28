@@ -25,8 +25,7 @@
   },
   "dependencies": {
     "vue-demi": "latest",
-    "@zhengxs/axios-client": "0.0.1",
-    "@zhengxs/axios-helpers": "0.0.1"
+    "@zhengxs/axios-http": "0.0.1"
   },
   "peerDependenciesMeta": {
     "@vue/composition-api": {

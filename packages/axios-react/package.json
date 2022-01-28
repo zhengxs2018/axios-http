@@ -23,8 +23,7 @@
     "react": "^16.8.0"
   },
   "dependencies": {
-    "@zhengxs/axios-client": "0.0.1",
-    "@zhengxs/axios-helpers": "0.0.1"
+    "@zhengxs/axios-http": "0.0.1"
   },
   "devDependencies": {
     "axios": "^0.19.2",
