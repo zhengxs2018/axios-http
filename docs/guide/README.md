@@ -13,7 +13,7 @@
 
 **依赖关系图**
 
-![Dependency tree](/axios-http/images/dependency-tree.png)
+![Dependency tree](/images/dependency-tree.png)
 
 - **@zhengxs/axios-http** 统一出口
 - **@zhengxs/axios-client** Axios 的封装
