@@ -1,0 +1,38 @@
+{
+  "name": "@zhengxs/axios-react",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./types/index.d.ts",
+  "typedocMain": "src/index.ts",
+  "exports": {
+    "require": "./dist/index.js",
+    "import": "./dist/index.mjs"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "axios": "*",
+    "react": "^16.8.0"
+  },
+  "dependencies": {
+    "@zhengxs/axios-client": "0.0.1",
+    "@zhengxs/axios-helpers": "0.0.1"
+  },
+  "devDependencies": {
+    "axios": "^0.19.2",
+    "react": "^16.8.0"
+  },
+  "author": {
+    "name": "zhengxs2018",
+    "email": "zhengxs2018@foxmail.com"
+  },
+  "license": "MIT"
+}

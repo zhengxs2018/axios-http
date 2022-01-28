@@ -1,0 +1,45 @@
+{
+  "name": "@zhengxs/axios-vue",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./types/index.d.ts",
+  "typedocMain": "src/index.ts",
+  "exports": {
+    "require": "./dist/index.js",
+    "import": "./dist/index.mjs"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0",
+    "axios": "*",
+    "vue": "^2.0.0 || >=3.1.0"
+  },
+  "dependencies": {
+    "vue-demi": "latest",
+    "@zhengxs/axios-client": "0.0.1",
+    "@zhengxs/axios-helpers": "0.0.1"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "axios": "^0.19.2",
+    "vue": "^3.1.0"
+  },
+  "author": {
+    "name": "zhengxs2018",
+    "email": "zhengxs2018@foxmail.com"
+  },
+  "license": "MIT"
+}

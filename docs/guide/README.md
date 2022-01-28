@@ -20,6 +20,8 @@
 - **@zhengxs/axios-helpers** 助手函数
 - **@zhengxs/axios-plugin-\*** 功能插件 (`ps: 兼容 Axios 的实例`)
 - **@zhengxs/axios-types** 提供给其他模块使用的 TS 类型
+- **@zhengxs/axios-vue** 提供给 `Vue 2 & 3` 使用的插件
+- **@zhengxs/axios-react** 提供给 `React` 使用的插件
 
 可以从 [这里](https://juejin.cn/post/7053471988752318472) 了解此模块的理念。
 

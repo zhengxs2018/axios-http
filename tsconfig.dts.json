@@ -15,6 +15,12 @@
     },
     {
       "path": "./packages/axios-http"
+    },
+    {
+      "path": "./packages/axios-vue"
+    },
+    {
+      "path": "./packages/axios-react"
     }
   ]
 }
