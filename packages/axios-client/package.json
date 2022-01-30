@@ -18,11 +18,21 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "peerDependencies": {
+    "axios": "*",
+    "axios-retry": "*"
+  },
+  "peerDependenciesMeta": {
+    "axios-retry": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "@zhengxs/axios-plugin-jsonp": "0.0.1",
     "@zhengxs/axios-plugin-versioning": "0.0.1",
-    "@zhengxs/axios-types": "0.0.1",
-    "axios": "^0.19.2",
+    "@zhengxs/axios-types": "0.0.1"
+  },
+  "devDependencies": {
     "axios-retry": "^3.2.4"
   },
   "author": {

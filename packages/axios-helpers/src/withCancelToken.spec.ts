@@ -4,8 +4,8 @@ import { withCancelToken } from './withCancelToken'
 describe('withCancelToken', () => {
   it('测试参数接口和返回结果是否正确', done => {
     const [fetchUser] = withCancelToken<
-      Record<string, string>,
-      Record<'code', number>
+      Record<'code', number>,
+      Record<string, string>
     >(async (params, config) => {
       equal(params['sortBy'], 'createAt', '参数与传入的不一致')
 

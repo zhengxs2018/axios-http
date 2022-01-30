@@ -1,5 +1,5 @@
 {
-  "name": "@zhengxs/axios-http",
+  "name": "@zhengxs/axios-shared",
   "version": "0.0.1",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
@@ -10,27 +10,26 @@
     "import": "./dist/index.mjs"
   },
   "sideEffects": false,
-  "files": [
-    "dist",
-    "types"
-  ],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "files": [
+    "dist",
+    "types"
+  ],
   "peerDependencies": {
-    "axios": "*"
+    "axios": "*",
+    "axios-retry": "*"
   },
-  "dependencies": {
-    "@zhengxs/axios-client": "0.0.1",
-    "@zhengxs/axios-helpers": "0.0.1",
-    "@zhengxs/axios-plugin-jsonp": "0.0.1",
-    "@zhengxs/axios-plugin-versioning": "0.0.1",
-    "@zhengxs/axios-shared": "0.0.1",
-    "@zhengxs/axios-types": "0.0.1"
+  "peerDependenciesMeta": {
+    "axios-retry": {
+      "optional": true
+    }
   },
+  "dependencies": {},
   "devDependencies": {
-    "axios": "^0.19.2"
+    "axios-retry": "^3.2.4"
   },
   "author": {
     "name": "zhengxs2018",

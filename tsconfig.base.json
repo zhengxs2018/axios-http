@@ -19,5 +19,6 @@
     "removeComments": false,
     "noEmitOnError": true,
     "skipLibCheck": true
-  }
+  },
+  "exclude": ["*.spec.ts"]
 }

@@ -19,6 +19,7 @@
 - **@zhengxs/axios-client** Axios 的封装
 - **@zhengxs/axios-helpers** 助手函数
 - **@zhengxs/axios-plugin-\*** 功能插件 (`ps: 兼容 Axios 的实例`)
+- **@zhengxs/axios-shared** 兼容层，用于解决依赖的模块方法未导出的问题
 - **@zhengxs/axios-types** 提供给其他模块使用的 TS 类型
 - **@zhengxs/axios-vue** 提供给 `Vue 2 & 3` 使用的插件
 - **@zhengxs/axios-react** 提供给 `React` 使用的插件
