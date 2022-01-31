@@ -58,7 +58,9 @@ export function withCancelToken<T = any, U = any>(
     // 每次请求都自动取消上一次
     cancel()
 
-    const cancelToken = new CancelToken(cancel => (abort = cancel))
+    const cancelToken = new CancelToken(function (cancel) {
+      abort = cancel
+    })
     const requestConfig = Object.assign({}, config, { cancelToken })
 
     // 防止使用者直接忘记返回 Promise 对象

@@ -206,7 +206,7 @@ export function defineClient(config?: AxiosRequestConfig): ClientInstance {
   ): number {
     return instance.interceptors.response.use(function (response) {
       return Promise.resolve(onFulfilled(response.data, response)).then(
-        data => {
+        function (data) {
           response.data = data
           return response
         }

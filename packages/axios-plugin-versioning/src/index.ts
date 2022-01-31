@@ -50,14 +50,14 @@ export default function versioning(
   if (isHeaderVersioningOptions(options)) {
     const header = options['header'] || 'X-Api-Version'
 
-    client.interceptors.request.use(config => {
+    client.interceptors.request.use(function (config) {
       if (config.enableVersion) {
         config.headers![header] = config.version!
       }
       return config
     })
   } else {
-    client.interceptors.request.use(config => {
+    client.interceptors.request.use(function (config) {
       if (config.enableVersion) {
         config.url = config.url!.replace('{version}', config.version!)
       }
