@@ -21,5 +21,11 @@ export type { AxiosJsonpConfig } from '@zhengxs/axios-plugin-jsonp'
 export { withCancelToken, withPolling } from '@zhengxs/axios-helpers'
 export type { WithPollingOptions } from '@zhengxs/axios-helpers'
 
-export { isAxiosError, isPromise, createTimer } from '@zhengxs/axios-shared'
+export {
+  isAxiosError,
+  isPromise,
+  isCancel,
+  createTimer,
+  toPath
+} from '@zhengxs/axios-shared'
 export type { TimerOptions } from '@zhengxs/axios-shared'

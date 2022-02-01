@@ -22,17 +22,10 @@ export type AuthorizationType =
   | 'SCRAM'
   | 'AWS4-HMAC-SHA256'
 
-export type PluginFunction<T = unknown> = (
-  instance: AxiosInstance,
-  options?: T
-) => void
+export type PluginFunction = (instance: AxiosInstance, ...args: any[]) => void
 
-export interface CompleteHandler<T> {
-  (error: AxiosError): Promise<T | never>
-}
-
-export interface PluginObject<T = unknown> {
-  install: PluginFunction<T>
+export interface PluginObject {
+  install: PluginFunction
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
 }

@@ -44,21 +44,21 @@ export default function versioning(
   const { prefix = 'v', defaultVersion = '1' } = options
 
   // 设置到默认配置上，这样可以允许单个请求覆盖
-  client.defaults.enableVersion = true
+  client.defaults.enableVersioning = true
   client.defaults.version = `${prefix === false ? '' : prefix}${defaultVersion}`
 
   if (isHeaderVersioningOptions(options)) {
     const header = options['header'] || 'X-Api-Version'
 
     client.interceptors.request.use(function (config) {
-      if (config.enableVersion) {
+      if (config.enableVersioning) {
         config.headers![header] = config.version!
       }
       return config
     })
   } else {
     client.interceptors.request.use(function (config) {
-      if (config.enableVersion) {
+      if (config.enableVersioning) {
         config.url = config.url!.replace('{version}', config.version!)
       }
       return config
@@ -77,7 +77,7 @@ declare module 'axios' {
     /**
      * 是否启用
      */
-    enableVersion?: boolean
+    enableVersioning?: boolean
 
     /**
      * 默认版本

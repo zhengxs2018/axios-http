@@ -21,6 +21,7 @@ import type {
 
 export function defineClient(config?: AxiosRequestConfig): ClientInstance {
   const instance = Axios.create(config)
+  const installedPlugins: (PluginFunction | PluginObject)[] = []
 
   /**
    * 设置基础地址
@@ -127,14 +128,14 @@ export function defineClient(config?: AxiosRequestConfig): ClientInstance {
    * client.use(AxiosRetry, { retries: 3 })
    * ```
    */
-  function use<U>(
-    plugin: PluginFunction<U> | PluginObject<U>,
-    options?: U
-  ): void {
+  function use(plugin: PluginFunction | PluginObject, ...args: any[]): void {
+    if (installedPlugins.indexOf(plugin) > -1) return
+    installedPlugins.push(plugin)
+
     if (typeof plugin === 'function') {
-      plugin(instance, options)
+      plugin(instance, ...args)
     } else {
-      plugin.install(instance, options)
+      plugin.install(instance, ...args)
     }
   }
 

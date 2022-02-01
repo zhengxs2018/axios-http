@@ -79,7 +79,7 @@ export interface ClientExport extends AxiosInstanceReference {
     scopes?: HeaderScope | HeaderScope[]
   ): void
   setAuthorization(value: string, scopes?: HeaderScope | HeaderScope[]): void
-  use<U>(plugin: PluginFunction<U> | PluginObject<U>, options?: U): void
+  use(plugin: PluginFunction | PluginObject, ...args: any[]): void
   getUri(config?: AxiosRequestConfig): string
   enableAutoRetry(options?: AxiosRetryConfig): void
   enableJsonp(options?: AxiosJsonpConfig): void
