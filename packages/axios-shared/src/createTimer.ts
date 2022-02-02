@@ -54,6 +54,8 @@ export function createTimer(executer: () => any, options?: TimerOptions) {
 
     error = null
     status = 'running'
+    // eslint-disable-next-line
+    // @ts-ignore 临时解决 typedoc 创建错误
     timerId = window.setTimeout(handler, interval)
   }
 
@@ -62,7 +64,9 @@ export function createTimer(executer: () => any, options?: TimerOptions) {
     status = 'initial'
 
     if (timerId) {
-      window.clearInterval(timerId)
+      // eslint-disable-next-line
+      // @ts-ignore 临时解决 typedoc 创建错误
+      window.clearTimeout(timerId)
       timerId = null
     }
   }
