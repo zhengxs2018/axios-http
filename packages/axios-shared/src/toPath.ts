@@ -1,5 +1,18 @@
 const URI_PARAMS_RE = /\{([^\\}]*(?:\\.[^\\}]*)*)\}/gm
 
+/**
+ * 解析路径并且填充数据
+ *
+ * @param path - 路径
+ * @param params - 参数
+ * @returns 拼接后的路径
+ *
+ * @example
+ *
+ * ```js
+ * toPath('/api/{version}/users', { version: '1.0' }) // => "/api/1.0/users"
+ * ```
+ */
 export function toPath(
   path: string,
   params: Record<string, string | number>

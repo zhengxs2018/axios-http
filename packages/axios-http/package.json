@@ -19,19 +19,31 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "axios": "*"
+    "@zhengxs/axios-plugin-jsonp": "latest",
+    "@zhengxs/axios-plugin-versioning": "latest",
+    "axios-retry": "latest"
+  },
+  "peerDependenciesMeta": {
+    "@zhengxs/axios-plugin-jsonp": {
+      "optional": true
+    },
+    "@zhengxs/axios-plugin-versioning": {
+      "optional": true
+    },
+    "axios-retry": {
+      "optional": true
+    }
   },
   "dependencies": {
     "@zhengxs/axios-client": "0.0.1",
     "@zhengxs/axios-helpers": "0.0.1",
-    "@zhengxs/axios-plugin-jsonp": "0.0.1",
-    "@zhengxs/axios-plugin-versioning": "0.0.1",
     "@zhengxs/axios-shared": "0.0.1",
-    "@zhengxs/axios-types": "0.0.1",
-    "axios": "^0.25.0"
+    "@zhengxs/axios-types": "0.0.1"
   },
   "devDependencies": {
-    "axios": "^0.19.2"
+    "@zhengxs/axios-plugin-jsonp": "0.0.1",
+    "@zhengxs/axios-plugin-versioning": "0.0.1",
+    "axios-retry": "^3.2.4"
   },
   "author": {
     "name": "zhengxs2018",

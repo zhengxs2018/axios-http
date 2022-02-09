@@ -15,7 +15,14 @@ export interface TimerOptions {
   shouldRetryOnError?: (error: any) => boolean
 }
 
-export function createTimer(executer: () => any, options?: TimerOptions) {
+/**
+ * 将定时器与 Promise 结合并且控制运行和重启
+ *
+ * @param callback - 执行回调
+ * @param options - 可选配置
+ * @returns 控制函数
+ */
+export function createTimer(callback: () => any, options?: TimerOptions) {
   const {
     interval = 1000,
     immutable = false,
@@ -28,7 +35,7 @@ export function createTimer(executer: () => any, options?: TimerOptions) {
 
   function handler() {
     try {
-      const returnValue = executer()
+      const returnValue = callback()
       if (returnValue != null && isPromise(returnValue)) {
         returnValue.then(restart, handlerError)
       } else {

@@ -1,1 +1,1 @@
-export {}
+export { useSWR } from './useSWR'

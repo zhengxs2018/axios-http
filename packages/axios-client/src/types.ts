@@ -1,50 +1,18 @@
-import type {
-  AxiosInstance,
-  AxiosInterceptorManager,
-  AxiosRequestConfig,
-  AxiosResponse,
-  AxiosError
-} from 'axios'
+import type { AxiosStatic, AxiosRequestConfig, AxiosResponse } from 'axios'
 
 import type { AxiosJsonpConfig } from '@zhengxs/axios-plugin-jsonp'
 import type { VersioningOptions } from '@zhengxs/axios-plugin-versioning'
 import type {
   AuthorizationType,
+  RetryConfig,
   HeaderScope,
   PluginFunction,
   PluginObject
 } from '@zhengxs/axios-types'
 
-// TODO
-// hack 解决 IAxiosRetryConfig 使用会报 ts4058 的问题
-export type AxiosRetryConfig = {
-  /**
-   * The number of times to retry before failing
-   * default: 3
-   */
-  retries?: number
-  /**
-   * Defines if the timeout should be reset between retries
-   * default: false
-   */
-  shouldResetTimeout?: boolean
-  /**
-   * A callback to further control if a request should be retried. By default, it retries if the result did not have a response.
-   */
-  retryCondition?: (error: AxiosError) => boolean | Promise<boolean>
-  /**
-   * A callback to further control the delay between retry requests. By default there is no delay.
-   */
-  retryDelay?: (retryCount: number, error: AxiosError) => number
-}
-
 export type AxiosInstanceReference = {
-  instance: AxiosInstance
-  defaults: AxiosRequestConfig
-  interceptors: {
-    request: AxiosInterceptorManager<AxiosRequestConfig>
-    response: AxiosInterceptorManager<AxiosResponse>
-  }
+  defaults: AxiosStatic['defaults']
+  interceptors: AxiosStatic['interceptors']
 }
 
 export type ClientRequestMethods = {
@@ -81,7 +49,7 @@ export interface ClientExport extends AxiosInstanceReference {
   setAuthorization(value: string, scopes?: HeaderScope | HeaderScope[]): void
   use(plugin: PluginFunction | PluginObject, ...args: any[]): void
   getUri(config?: AxiosRequestConfig): string
-  enableAutoRetry(options?: AxiosRetryConfig): void
+  enableAutoRetry(options?: RetryConfig): void
   enableJsonp(options?: AxiosJsonpConfig): void
   enableVersioning(options: VersioningOptions): void
   onRequest(

@@ -8,12 +8,12 @@ import AxiosVersioning, {
 import type {
   AuthorizationType,
   HeaderScope,
+  RetryConfig,
   PluginFunction,
   PluginObject
 } from '@zhengxs/axios-types'
 
 import type {
-  AxiosRetryConfig,
   ClientInstance,
   ClientExport,
   ClientRequestMethods
@@ -148,7 +148,7 @@ export function defineClient(config?: AxiosRequestConfig): ClientInstance {
    *
    * @param options - axios-retry 插件配置
    */
-  function enableAutoRetry(options?: AxiosRetryConfig): void {
+  function enableAutoRetry(options?: RetryConfig): void {
     use(AxiosRetry, options)
   }
 
@@ -232,7 +232,7 @@ export function defineClient(config?: AxiosRequestConfig): ClientInstance {
     onRequest,
     onResponse,
     // reference Axios
-    instance: instance,
+    // TODO defaults 的属性新版本和旧版本的定义不一样
     defaults: instance.defaults,
     interceptors: instance.interceptors
   })
@@ -255,12 +255,10 @@ function addRequestMethodsToClient(
 
   REQUEST_METHODS.forEach(function (method) {
     clientExport[method] = function () {
-      /* eslint-disable prefer-rest-params */
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      return instance.apply(instance, arguments).then(function (res) {
-        return res.data
-      })
+      // eslint-disable-next-line prefer-rest-params
+      return instance.apply(instance, arguments).then(res => res.data)
     }
   })
 

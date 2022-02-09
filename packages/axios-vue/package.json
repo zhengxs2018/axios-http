@@ -24,8 +24,8 @@
     "vue": "^2.0.0 || >=3.1.0"
   },
   "dependencies": {
-    "vue-demi": "latest",
-    "@zhengxs/axios-http": "0.0.1"
+    "@zhengxs/axios-http": "0.0.1",
+    "vue-demi": "latest"
   },
   "peerDependenciesMeta": {
     "@vue/composition-api": {

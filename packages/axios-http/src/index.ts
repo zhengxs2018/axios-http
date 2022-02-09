@@ -1,5 +1,11 @@
+export { client as default } from './client'
+
+/// reference
 export { defineClient } from '@zhengxs/axios-client'
-export type { ClientInstance, AxiosRetryConfig } from '@zhengxs/axios-client'
+export type { ClientInstance } from '@zhengxs/axios-client'
+
+export { withCancelToken, withPolling } from '@zhengxs/axios-helpers'
+export type { WithPollingOptions } from '@zhengxs/axios-helpers'
 
 export type {
   Fetcher,
@@ -18,13 +24,10 @@ export type {
 
 export type { AxiosJsonpConfig } from '@zhengxs/axios-plugin-jsonp'
 
-export { withCancelToken, withPolling } from '@zhengxs/axios-helpers'
-export type { WithPollingOptions } from '@zhengxs/axios-helpers'
-
 export {
   isAxiosError,
-  isPromise,
   isCancel,
+  isPromise,
   createTimer,
   toPath
 } from '@zhengxs/axios-shared'

@@ -1,2 +1,4 @@
+export type { AxiosRequestConfig } from 'axios'
+
 export { defineClient } from './defineClient'
-export type { ClientInstance, AxiosRetryConfig } from './types'
+export type { ClientInstance } from './types'

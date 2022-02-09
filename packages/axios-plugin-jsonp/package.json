@@ -22,7 +22,7 @@
     "axios": "*"
   },
   "dependencies": {
-    "axios-jsonp": "^1.0.4"
+    "axios-jsonp": "latest"
   },
   "devDependencies": {
     "axios": "^0.19.2"

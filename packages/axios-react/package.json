@@ -19,14 +19,13 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "axios": "*",
     "react": "^16.8.0"
   },
   "dependencies": {
-    "@zhengxs/axios-http": "0.0.1"
+    "@zhengxs/axios-http": "0.0.1",
+    "swr": "latest"
   },
   "devDependencies": {
-    "axios": "^0.19.2",
     "react": "^16.8.0"
   },
   "author": {

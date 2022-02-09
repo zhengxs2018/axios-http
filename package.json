@@ -10,7 +10,7 @@
     "test": "jest --runInBand",
     "lint": "eslint . --ext [js,ts,tsx] --ignore-path .gitignore --cache --fix",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json|vue|md|scss)\"",
-    "graph": "package-dependency-graph --png dependency-tree.png",
+    "graph": "package-dependency-graph --graphviz --png dependency-tree.png",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "docs:build-typedoc": "typedoc --options typedoc.json",
@@ -29,8 +29,7 @@
     "gh-pages": "^3.2.3",
     "lodash": "^4.17.21",
     "moxios": "^0.4.0",
-    "mri": "^1.2.0",
-    "package-dependency-graph": "^1.12.0"
+    "mri": "^1.2.0"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",

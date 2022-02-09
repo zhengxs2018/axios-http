@@ -96,19 +96,9 @@ $ yarn docs:dev
 $ yarn docs:release
 ```
 
-### 安装 canvas 模块失败的解决办法
+## 注意
 
-为了防止安装 package-dependency-graph 关联的 canvas 模块失败，忽略脚本。
-
-然后再用 cnpm 进行安装，如果环境支持，可以选择执行
-
-```sh
-# 忽略执行
-$ yarn install --ignore-scripts
-
-# 手动安装 canvas
-$ cnpm i canvas --no-save
-```
+依赖关系图 使用 [package-dependency-graph](https://github.com/plantain-00/package-dependency-graph) 模块生成，因国内网络访问 github 问题，不再内置此模块，需要的可以使用 cnpm 进行全局安装。
 
 ## License
 

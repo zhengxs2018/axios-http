@@ -22,7 +22,7 @@
     "axios": "*"
   },
   "dependencies": {
-    "@zhengxs/axios-shared": "^0.0.1",
+    "@zhengxs/axios-shared": "0.0.1",
     "@zhengxs/axios-types": "0.0.1"
   },
   "devDependencies": {
