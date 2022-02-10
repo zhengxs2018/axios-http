@@ -40,9 +40,7 @@ $ pnpm add @zhengxs/axios-http
 ### 示例
 
 ```js
-import { defineClient } from '@zhengxs/axios-http'
-
-const http = defineClient()
+import http from '@zhengxs/axios-http'
 
 // 设置基础地址
 http.setBaseURL('https://example.com')
@@ -52,16 +50,14 @@ http.setHeader('x-api-version', 'v1')
 
 // 设置 Authorization 头
 // 默认为 Bearer 类型
-http.setToken('xxx')
+http.setAuthorization('Bearer xxx')
 
-// 启用 JSONP 功能
-http.enableJsonp()
+// 设置 Authorization 头，自动加认证类型
+// 默认为 Bearer 类型
+http.setToken('xxx')
 
 // 启用自动重试
 http.enableAutoRetry()
-
-// 启用 URI 版本控制
-http.enableVersioning()
 
 // 发送请求
 http.request('http://example.com/test')

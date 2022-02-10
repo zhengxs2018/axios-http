@@ -10,6 +10,13 @@ export const client = defineClient({
   }
 })
 
+/**
+ * 发送 GET 请求
+ *
+ * @param url - 目标地址
+ * @param config - 请求配置
+ * @returns
+ */
 export function request(url: string, config?: AxiosRequestConfig) {
-  return client.request({ ...config, url })
+  return client.request(Object.assign({ url }, config))
 }

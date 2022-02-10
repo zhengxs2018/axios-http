@@ -15,15 +15,6 @@ export type {
   PluginObject
 } from '@zhengxs/axios-types'
 
-export { VersioningType } from '@zhengxs/axios-plugin-versioning'
-export type {
-  VersioningOptions,
-  URIVersioningOptions,
-  HeaderVersioningOptions
-} from '@zhengxs/axios-plugin-versioning'
-
-export type { AxiosJsonpConfig } from '@zhengxs/axios-plugin-jsonp'
-
 export {
   isAxiosError,
   isCancel,
