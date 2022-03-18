@@ -1,6 +1,6 @@
 # @zhengxs/axios-http
 
-> 模块尚未发布，计划 2 月中旬发布，正在积极开发中
+> 模块尚未发布，正在积极开发中
 
 大多数前端应用都需要通过 HTTP 协议与后端服务器通讯，为约定和规范从 UI 交互到请求服务端数据的完整方案，进一步简化了应用的数据请求流程，基于 [Axios][axios] 提供了 HTTP 模块。
 
@@ -20,7 +20,8 @@
 框架集成中
 
 - **@zhengxs/axios-vue** 提供给 `Vue 2 & 3` 使用的插件，由 [vue-demi](https://github.com/vueuse/vue-demi) 提供技术支持
-- **@zhengxs/axios-react** 提供给 `React` 使用的插件
+
+**注意**: 模块将作为 [VueExpress](https://github.com/zhengxs2018/vue-express) 内容的一部分进行发布。
 
 ## 使用
 
